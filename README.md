@@ -1,7 +1,6 @@
 # Java Functional - Fluid
 ## add functional paradigm to your days.
 
-
 ### Example
 ```sh
 Functional.of(new Object())
