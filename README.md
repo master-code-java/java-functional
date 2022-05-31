@@ -1,16 +1,17 @@
 # Java Functional - Fluid
 ## add functional paradigm to your days.
 
-##Example
 
+### Example
 ```sh
-Functional.of(new Order())
+Functional.of(new Object())
 .run(System.out::println);
 ```
 
-## Current version: 1.0
+### Current version
+The current version of this client is 1.0.
 
-## Next improvements:
+### Next improvements:
 The next action that will be taken in the project, feel free to contribute with that.
 
 - Create examples as well documentation.
