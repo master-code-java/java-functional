@@ -5,8 +5,6 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import com.mastercode.javafuncional.interfaces.Block;
-
 public class Functional<T> {
 
 	private final T value;
