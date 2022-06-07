@@ -25,7 +25,6 @@ To start with the functional, you should download the project from git repositor
 <li>Make a test.
 Create a class with a main method and add the followig code to the main method and run it.
     
-    sh
     Functional.of(new Object())
     .run(System.out::println);
 
