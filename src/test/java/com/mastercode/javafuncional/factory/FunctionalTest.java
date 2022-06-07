@@ -10,6 +10,9 @@ public class FunctionalTest {
 
 	@Test
 	public void given_object_then_return_an_object() {
+		
+		Functional.of(new Object())
+		.run(System.out::println);
 
 		Object object = Functional.of(new Object())
 				.get();
