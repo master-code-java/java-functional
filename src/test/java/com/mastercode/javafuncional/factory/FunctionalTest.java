@@ -20,7 +20,7 @@ public class FunctionalTest {
 	}
 
 	@Test
-	public void Given_object_then_return_functional_object() {
+	public void given_object_then_return_functional_object() {
 
 		Functional<Object> of = Functional.of(new Object());
 
