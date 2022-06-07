@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mastercode</groupId>
 	<artifactId>javaFunctional</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Java Functional Fluid</name>
 	<description>Is wrapper which allow people code in a functional paradigm in fluid way </description>
 	<properties>

@@ -1,5 +1,5 @@
 # Java Functional - Fluid
-## add functional paradigm to your days.
+### add functional paradigm to your days.
 
 ### Example
 ```sh
