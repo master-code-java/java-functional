@@ -28,8 +28,8 @@ public class Functional<T> {
 		return new Functional<>(value);
 	}
 
-	public Functional<T> also(Function<T,T> block) {
-		return of(block.apply(value));
+	public Functional<T> also(Function<T,T> function) {
+		return of(function.apply(value));
 	}
 
 	public <R> Functional<R> let(Function<T, R> function) {
@@ -40,11 +40,11 @@ public class Functional<T> {
 		param.accept(value);
 	}
 
-	public Functional<T> sameOrElse(Function<T,T> block) {
+	public Functional<T> sameOrElse(Function<T,T> function) {
 		if (this.value != null) {
 			return this;
 		} else {
-			return of(block.apply(value));
+			return of(function.apply(value));
 		}
 	}
 
