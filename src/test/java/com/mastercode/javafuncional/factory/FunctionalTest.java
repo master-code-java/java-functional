@@ -9,16 +9,27 @@ import org.junit.Test;
 public class FunctionalTest {
 	
 	@Test
-	public void given_object_then_return_an_object() {
+	public void given_number_then_log() {
+		
+		String result = Functional.of("Test")
+		.andThen(val -> val + 1)
+		.andLog(System.out::println)
+		.andThen(val -> val + 1)
+		.get();
+		
+		assertNotNull(result);
+		assertTrue(result instanceof String);
+
+		assertEquals("Test11", result);
+	
+	}
+	
+	
+	@Test
+	public void given_object_then_return_object() {
 		
 		Functional.of(new Object())
-		.run(System.out::println);
-
-		Object object = Functional.of(new Object())
-				.get();
-
-		assertNotNull(object);
-		assertTrue(object instanceof Object);
+		.andRun(System.out::println);
 
 	}
 
@@ -35,7 +46,7 @@ public class FunctionalTest {
 	public void given_string_then_return_string_object() {
 
 		String result = Functional.of("Hello World")
-				.also(msg -> msg).get();
+				.andThen(msg -> msg).get();
 
 		assertNotNull(result);
 		assertTrue(result instanceof String);
@@ -50,21 +61,13 @@ public class FunctionalTest {
 		Integer expected = 1;
 
 		Integer result = Functional.of("Hello world")
-				.let(msg -> 1)
+				.andThen(msg -> 1)
 				.get();
 
 		assertNotNull(result);
 		assertTrue(result instanceof Integer);
 
 		assertEquals(expected, result);
-
-	}
-
-	@Test
-	public void given_msg_then_print_the_msg() {
-
-		Functional.of("Hello world")
-		.run(System.out::println);
 
 	}
 
@@ -105,7 +108,7 @@ public class FunctionalTest {
 				.get();
 	}
 	
-	@Test()
+	@Test
 	public void given_object_then_not_throw_exception() throws Exception {
 		
 		Object object = Functional.of(new Object())
@@ -116,4 +119,33 @@ public class FunctionalTest {
 		assertTrue(object instanceof Object);
 
 	}
+	
+	@Test
+	public void given_string_then_orElse_return_string() throws Exception {
+		
+		String result = Functional.of("test")
+				.orElse(msg -> {
+					return msg;
+				}).get();
+
+		assertNotNull(result);
+		assertTrue(result instanceof String);
+		assertEquals("test",result);
+
+	}
+	
+	@Test
+	public void given_string_then_let_return_same_object() throws Exception {
+		
+		String result = Functional.of("test")
+				.andThen(msg -> {
+					return msg;
+				}).get();
+
+		assertNotNull(result);
+		assertTrue(result instanceof String);
+		assertEquals("test",result);
+
+	}
+	
 }

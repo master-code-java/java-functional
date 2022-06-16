@@ -24,19 +24,20 @@ public class Functional<T> {
 		return new Functional<T>(value);
 	}
 
-	public Functional<T> also(Function<T,T> function) {
+	public <R> Functional<R> andThen(Function<T, R> function) {
 		return of(function.apply(value));
 	}
 
-	public <R> Functional<R> let(Function<T, R> function) {
-		return of(function.apply(value));
-	}
-
-	public void run(Consumer<T> consumer) {
+	public void andRun(Consumer<T> consumer) {
 		consumer.accept(value);
 	}
 
-	public Functional<T> orElse(Function<T,T> function) {
+	public Functional<T> andLog(Consumer<T> consumer) {
+		consumer.accept(value);
+		return this;
+	}
+
+	public Functional<T> orElse(Function<T, T> function) {
 		if (this.value != null) {
 			return this;
 		} else {
@@ -44,8 +45,7 @@ public class Functional<T> {
 		}
 	}
 
-	public <X extends Throwable> Functional<T> 
-	orElse(Supplier<? extends X> exceptionSupplier) throws X {
+	public <X extends Throwable> Functional<T> orElse(Supplier<? extends X> exceptionSupplier) throws X {
 		if (value != null) {
 			return this;
 		} else {
