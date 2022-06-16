@@ -1,6 +1,5 @@
 package com.mastercode.javafuncional.factory;
 
-import java.util.NoSuchElementException;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -18,14 +17,11 @@ public class Functional<T> {
 	}
 
 	public T get() {
-		if (value == null) {
-			throw new NoSuchElementException("No value present");
-		}
 		return value;
 	}
 
 	public static <T> Functional<T> of(T value) {
-		return new Functional<>(value);
+		return new Functional<T>(value);
 	}
 
 	public Functional<T> also(Function<T,T> function) {
