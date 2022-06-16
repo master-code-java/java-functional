@@ -32,8 +32,8 @@ public class Functional<T> {
 		return of(function.apply(value));
 	}
 
-	public void run(Consumer<T> param) {
-		param.accept(value);
+	public void run(Consumer<T> consumer) {
+		consumer.accept(value);
 	}
 
 	public Functional<T> orElse(Function<T,T> function) {
