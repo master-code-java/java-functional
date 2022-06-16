@@ -45,7 +45,7 @@ public class Functional<T> {
 	}
 
 	public <X extends Throwable> Functional<T> 
-	sameOrThrow(Supplier<? extends X> exceptionSupplier) throws X {
+	orElse(Supplier<? extends X> exceptionSupplier) throws X {
 		if (value != null) {
 			return this;
 		} else {

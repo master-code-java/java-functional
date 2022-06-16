@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class FunctionalTest {
-
+	
 	@Test
 	public void given_object_then_return_an_object() {
 		
@@ -101,7 +101,7 @@ public class FunctionalTest {
 	public void given_null_then_throw_exception() throws Exception {
 		
 		Functional.of(null)
-				.sameOrThrow(() -> new Exception())
+				.orElse(() -> new Exception())
 				.get();
 	}
 	
@@ -109,7 +109,7 @@ public class FunctionalTest {
 	public void given_object_then_not_throw_exception() throws Exception {
 		
 		Object object = Functional.of(new Object())
-				.sameOrThrow(() -> new Exception())
+				.orElse(() -> new Exception())
 				.get();
 		
 		assertNotNull(object);
