@@ -36,7 +36,7 @@ public class Functional<T> {
 		param.accept(value);
 	}
 
-	public Functional<T> sameOrElse(Function<T,T> function) {
+	public Functional<T> orElse(Function<T,T> function) {
 		if (this.value != null) {
 			return this;
 		} else {

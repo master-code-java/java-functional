@@ -72,7 +72,7 @@ public class FunctionalTest {
 	public void given_obj_then_return_the_same_object() {
 		
 		String result = Functional.of("Hello world")
-				.sameOrElse(msg -> "Hello world fail")
+				.orElse(msg -> "Hello world fail")
 				.get();
 		
 		assertNotNull(result);
@@ -86,7 +86,7 @@ public class FunctionalTest {
 	public void given_null_then_return_the_other_object() {
 		
 		Object object = Functional.of(null)
-				.sameOrElse(msg -> "Hello world")
+				.orElse(msg -> "Hello world")
 				.get();
 		
 		assertNotNull(object);
